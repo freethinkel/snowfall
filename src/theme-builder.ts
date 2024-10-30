@@ -51,6 +51,31 @@ export class ThemeBuilder {
         },
       },
       {
+        scope: "markup.heading.markdown",
+        settings: {
+          foreground: theme.tokens.functions,
+          fontStyle: "bold",
+        },
+      },
+      {
+        scope: "text.html.markdown markup.inline.raw",
+        settings: {
+          foreground: theme.tokens.constants,
+        },
+      },
+      {
+        scope: "markup.underline.link",
+        settings: {
+          foreground: theme.tokens.strings,
+        },
+      },
+      {
+        scope: "markup.list punctuation.definition.list.begin",
+        settings: {
+          foreground: theme.tokens.properties,
+        },
+      },
+      {
         scope: "storage.type.annotation",
         settings: {
           foreground: theme.tokens.constants,
@@ -62,7 +87,14 @@ export class ThemeBuilder {
   }
 
   private themeToVscodeTheme(theme: Theme) {
-    const secondaryBackground = mix(theme.background, "#000000", 0.1);
+    const isDark = theme.type === "dark";
+    const secondaryBackground = mix(
+      theme.background,
+      "#000000",
+      isDark ? 0.1 : 0.05
+    );
+    const shadow = darken(theme.background, 0.2);
+
     return {
       name: theme.name,
       $schema: "vscode://schemas/color-theme",
@@ -70,33 +102,45 @@ export class ThemeBuilder {
         foreground: theme.foreground,
         "editor.background": theme.background,
         "editor.foreground": theme.foreground,
-        "activityBar.background": theme.background,
-        "titleBar.activeBackground": theme.background,
-        "titleBar.inactiveBackground": theme.background,
+        "titleBar.activeBackground": secondaryBackground,
+        "titleBar.inactiveBackground": secondaryBackground,
+        "editorWidget.background": secondaryBackground,
+
+        "editorLineNumber.foreground": opacity(theme.foreground, 0.15),
+        "editorLineNumber.activeForeground": opacity(theme.foreground, 0.5),
         // TAB
-        "tab.activeBackground": mix(theme.background, theme.foreground, 0.1),
-        "tab.inactiveBackground": theme.background,
+        "tab.activeBackground": theme.background,
+        "tab.inactiveBackground": secondaryBackground,
         "tab.border": "#00000000",
-        "editorGroupHeader.tabsBackground": theme.background,
-        "sideBar.background": theme.background,
-        "toolbar.activeBackground": theme.background,
+        "editorGroupHeader.tabsBackground": secondaryBackground,
+        "sideBar.background": secondaryBackground,
+        "toolbar.activeBackground": secondaryBackground,
         "activityBarBadge.background": theme.accent,
-        "statusBar.background": theme.background,
+        "activityBarBadge.foreground": theme.background,
+        "statusBar.background": secondaryBackground,
+        "statusBar.foreground": theme.foreground,
         "statusBarItem.remoteBackground": theme.accent,
-        "statusBarItem.remoteForeground": theme.background,
+        "statusBarItem.remoteForeground": secondaryBackground,
         "statusBarItem.errorBackground": theme.diagnostic.error,
         "statusBar.debuggingBackground": theme.accent,
         "statusBar.debuggingForeground": theme.background,
         "debugToolBar.background": secondaryBackground,
         "sideBarTitle.foreground": theme.foreground,
         "quickInput.background": theme.background,
-        "activityBar.activeBackground": theme.background,
+        "activityBar.background": secondaryBackground,
         "activityBar.foreground": theme.foreground,
         "activityBar.inactiveForeground": opacity(theme.foreground, 0.5),
-        "activityBar.activeBorder": opacity(theme.accent, 0),
-        "list.focusForeground": "red",
+        "activityBar.activeBorder": theme.accent,
+        "list.focusForeground": mix(
+          theme.foreground,
+          theme.type === "dark" ? "#ffffff" : "#000000",
+          0.4
+        ),
+        "quickInputList.focusForeground": theme.foreground,
         "list.hoverBackground": mix(theme.background, theme.foreground, 0.1),
         "button.background": theme.accent,
+        "button.foreground": theme.background,
+        "scrollbar.shadow": shadow,
 
         "button.secondaryBackground": mix(theme.background, "#ffffff", 0.1),
         "notifications.background": secondaryBackground,
@@ -109,8 +153,9 @@ export class ThemeBuilder {
         "quickInputList.focusBackground": opacity(theme.accent, 0.2),
         "editor.lineHighlightBorder": opacity(theme.foreground, 0.05),
         "editor.lineHighlightBackground": opacity(theme.foreground, 0.05),
-        "editorStickyScroll.shadow": darken(theme.background, 0.3),
+        "editorStickyScroll.shadow": shadow,
         "editorCursor.foreground": theme.accent,
+        "editorCursor.background": theme.background,
         "editor.inactiveSelectionBackground": opacity(theme.accent, 0.1),
         "editor.selectionBackground": opacity(theme.accent, 0.2),
         "selection.background": opacity(theme.accent, 0.2),
@@ -118,13 +163,19 @@ export class ThemeBuilder {
         "editorWarning.foreground": theme.diagnostic.warning,
         "errorLens.warningBackground": opacity(theme.diagnostic.warning, 0.1),
         "errorLens.warningForeground": theme.diagnostic.warning,
+        "errorLens.errorBackground": opacity(theme.diagnostic.error, 0.1),
+        "errorLens.errorForeground": theme.diagnostic.error,
+        "editorError.foreground": theme.diagnostic.error,
+        "list.errorForeground": theme.diagnostic.error,
+
         // LIST
         focusBorder: theme.accent,
-        "list.focusHighlightForeground": theme.accent,
+        "list.focusHighlightForeground": theme.foreground,
         "list.highlightForeground": theme.accent,
         "pickerGroup.foreground": theme.accent,
         "list.warningForeground": theme.diagnostic.warning,
         "list.focusBackground": opacity(theme.foreground, 0.05),
+        // "list.focusForeground": theme.foreground,
         "list.activeSelectionBackground": opacity(theme.foreground, 0.1),
         "list.inactiveSelectionBackground": opacity(theme.foreground, 0.05),
         // GIT
@@ -133,6 +184,15 @@ export class ThemeBuilder {
         "gitDecoration.deletedResourceForeground": theme.git.removed,
         "editorGutter.modifiedBackground": theme.git.modified,
         "editorGutter.deletedBackground": theme.git.removed,
+        "diffEditor.removedLineBackground": opacity(theme.git.removed, 0.2),
+        "diffEditor.removedTextBackground": opacity(theme.git.removed, 0.2),
+        "diffEditor.insertedTextBackground": opacity(theme.git.added, 0.2),
+        "diffEditor.insertedLineBackground": opacity(theme.git.added, 0.2),
+        "editorGutter.addedBackground": theme.git.added,
+        "gitDecoration.addedResourceForeground": theme.git.added,
+        "gitDecoration.stageDeletedResourceForeground": "red",
+        "gitDecoration.stageModifiedResourceForeground": theme.git.modified,
+        "gitDecoration.renamedResourceForeground": theme.git.added,
         "gitDecoration.ignoredResourceForeground": opacity(
           theme.foreground,
           0.6

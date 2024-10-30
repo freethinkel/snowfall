@@ -4,6 +4,12 @@ import {
   parseToRgb,
   transparentize,
 } from "polished";
+import {
+  convertRgbToOklab,
+  parseHex,
+  serializeHex,
+  convertOklabToRgb,
+} from "culori/fn";
 import { RgbaColor } from "polished/lib/types/color";
 
 export const mix = (colorA: string, colorB: string, amount: number) => {
@@ -29,3 +35,14 @@ export const opacity = (color: string, amount: number) => {
 
 export const darken = (color: string, amount: number) =>
   mix(color, "#000000", amount);
+
+export const lighten = (value: string, amount: number) => {
+  const color = convertRgbToOklab(parseHex(value));
+
+  return serializeHex(
+    convertOklabToRgb({
+      ...color,
+      l: color.l + amount,
+    })
+  );
+};

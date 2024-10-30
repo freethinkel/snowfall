@@ -2,7 +2,12 @@
   "name": "snowfall",
   "displayName": "Snowfall",
   "description": "Cold theme",
-  "version": "0.0.2",
+  "version": "0.3.0",
+  "publisher": "freethinkel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freethinkel/nules-theme.git"
+  },
   "author": {
     "name": "freethinkel"
   },
@@ -15,6 +20,14 @@
   "categories": [
     "Themes"
   ],
+  "keywords": [
+    "freethinkel",
+    "nord theme",
+    "snow dark theme",
+    "cold theme",
+    "vscode theme",
+    "dark theme"
+  ],
   "contributes": {
     "themes": [
       {
@@ -23,7 +36,7 @@
         "path": "./themes/snowfall_dark.json"
       },
       {
-        "label": "Snowfall dark",
+        "label": "Snowfall light",
         "uiTheme": "vs",
         "path": "./themes/snowfall_light.json"
       }
