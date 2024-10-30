@@ -1,0 +1,39 @@
+{
+  "name": "snowfall",
+  "displayName": "Snowfall",
+  "description": "Cold theme",
+  "version": "0.0.2",
+  "author": {
+    "name": "freethinkel"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Snowfall dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/snowfall_dark.json"
+      },
+      {
+        "label": "Snowfall dark",
+        "uiTheme": "vs",
+        "path": "./themes/snowfall_light.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.1",
+    "@types/vscode": "^1.94.0",
+    "culori": "^4.0.1",
+    "polished": "^4.3.1",
+    "tsx": "^4.19.2"
+  }
+}
