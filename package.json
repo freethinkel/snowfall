@@ -2,8 +2,9 @@
   "name": "snowfall",
   "displayName": "Snowfall",
   "description": "Cold theme",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "publisher": "freethinkel",
+  "icon": "./logo.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/freethinkel/nules-theme.git"
