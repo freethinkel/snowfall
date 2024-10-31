@@ -1,4 +1,6 @@
 ![Banner](./assets/banner.png)
+![Banner Dark](./assets/banner_dark.png#gh-dark-mode-only)
+![Banner Light](./assets/banner_light.png#gh-light-mode-only)
 
 # Snowfall theme for vscode
 
