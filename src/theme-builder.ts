@@ -81,6 +81,12 @@ export class ThemeBuilder {
           foreground: theme.tokens.constants,
         },
       },
+      {
+        scope: ["meta.tag.attributes", "constant.numeric"],
+        settings: {
+          foreground: theme.tokens.functions,
+        },
+      },
     ];
 
     return tokens;
@@ -114,6 +120,10 @@ export class ThemeBuilder {
         "tab.border": "#00000000",
         "editorGroupHeader.tabsBackground": secondaryBackground,
         "sideBar.background": secondaryBackground,
+        "sideBarSectionHeader.background": darken(secondaryBackground, 0.04),
+        "sideBarTitle.foreground": theme.foreground,
+        "editor.wordHighlightTextBackground": opacity(theme.accent, 0.1),
+        "editor.wordHighlightTextBorder": opacity(theme.accent, 0.1),
         "toolbar.activeBackground": secondaryBackground,
         "activityBarBadge.background": theme.accent,
         "activityBarBadge.foreground": theme.background,
@@ -125,7 +135,6 @@ export class ThemeBuilder {
         "statusBar.debuggingBackground": theme.accent,
         "statusBar.debuggingForeground": theme.background,
         "debugToolBar.background": secondaryBackground,
-        "sideBarTitle.foreground": theme.foreground,
         "quickInput.background": theme.background,
         "activityBar.background": secondaryBackground,
         "activityBar.foreground": theme.foreground,
@@ -178,16 +187,29 @@ export class ThemeBuilder {
         // "list.focusForeground": theme.foreground,
         "list.activeSelectionBackground": opacity(theme.foreground, 0.1),
         "list.inactiveSelectionBackground": opacity(theme.foreground, 0.05),
+        "list.activeSelectionForeground": theme.foreground,
         // GIT
         "gitDecoration.untrackedResourceForeground": theme.git.added,
         "gitDecoration.modifiedResourceForeground": theme.git.modified,
         "gitDecoration.deletedResourceForeground": theme.git.removed,
         "editorGutter.modifiedBackground": theme.git.modified,
         "editorGutter.deletedBackground": theme.git.removed,
-        "diffEditor.removedLineBackground": opacity(theme.git.removed, 0.2),
-        "diffEditor.removedTextBackground": opacity(theme.git.removed, 0.2),
-        "diffEditor.insertedTextBackground": opacity(theme.git.added, 0.2),
-        "diffEditor.insertedLineBackground": opacity(theme.git.added, 0.2),
+        "diffEditor.removedLineBackground": opacity(
+          theme.git.removed,
+          isDark ? 0.2 : 0.1
+        ),
+        "diffEditor.removedTextBackground": opacity(
+          theme.git.removed,
+          isDark ? 0.2 : 0.1
+        ),
+        "diffEditor.insertedTextBackground": opacity(
+          theme.git.added,
+          isDark ? 0.2 : 0.1
+        ),
+        "diffEditor.insertedLineBackground": opacity(
+          theme.git.added,
+          isDark ? 0.2 : 0.1
+        ),
         "editorGutter.addedBackground": theme.git.added,
         "gitDecoration.addedResourceForeground": theme.git.added,
         "gitDecoration.stageDeletedResourceForeground": "red",

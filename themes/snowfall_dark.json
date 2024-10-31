@@ -15,6 +15,10 @@
     "tab.border": "#00000000",
     "editorGroupHeader.tabsBackground": "#202328",
     "sideBar.background": "#202328",
+    "sideBarSectionHeader.background": "#1e2126",
+    "sideBarTitle.foreground": "#91a2a6",
+    "editor.wordHighlightTextBackground": "#84c4df1a",
+    "editor.wordHighlightTextBorder": "#84c4df1a",
     "toolbar.activeBackground": "#202328",
     "activityBarBadge.background": "#84c4df",
     "activityBarBadge.foreground": "#24272d",
@@ -26,7 +30,6 @@
     "statusBar.debuggingBackground": "#84c4df",
     "statusBar.debuggingForeground": "#24272d",
     "debugToolBar.background": "#202328",
-    "sideBarTitle.foreground": "#91a2a6",
     "quickInput.background": "#24272d",
     "activityBar.background": "#202328",
     "activityBar.foreground": "#91a2a6",
@@ -69,6 +72,7 @@
     "list.focusBackground": "#91a2a60d",
     "list.activeSelectionBackground": "#91a2a61a",
     "list.inactiveSelectionBackground": "#91a2a60d",
+    "list.activeSelectionForeground": "#91a2a6",
     "gitDecoration.untrackedResourceForeground": "#BDB969",
     "gitDecoration.modifiedResourceForeground": "#9BCAFF",
     "gitDecoration.deletedResourceForeground": "#FA7583",
@@ -184,6 +188,15 @@
       "scope": "storage.type.annotation",
       "settings": {
         "foreground": "#EBD2A7"
+      }
+    },
+    {
+      "scope": [
+        "meta.tag.attributes",
+        "constant.numeric"
+      ],
+      "settings": {
+        "foreground": "#7FB2C7"
       }
     }
   ]

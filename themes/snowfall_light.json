@@ -15,6 +15,10 @@
     "tab.border": "#00000000",
     "editorGroupHeader.tabsBackground": "#f2f2f2",
     "sideBar.background": "#f2f2f2",
+    "sideBarSectionHeader.background": "#e8e8e8",
+    "sideBarTitle.foreground": "#5C6165",
+    "editor.wordHighlightTextBackground": "#88c0d01a",
+    "editor.wordHighlightTextBorder": "#88c0d01a",
     "toolbar.activeBackground": "#f2f2f2",
     "activityBarBadge.background": "#88C0D0",
     "activityBarBadge.foreground": "#ffffff",
@@ -26,7 +30,6 @@
     "statusBar.debuggingBackground": "#88C0D0",
     "statusBar.debuggingForeground": "#ffffff",
     "debugToolBar.background": "#f2f2f2",
-    "sideBarTitle.foreground": "#5C6165",
     "quickInput.background": "#ffffff",
     "activityBar.background": "#f2f2f2",
     "activityBar.foreground": "#5C6165",
@@ -69,19 +72,20 @@
     "list.focusBackground": "#5c61650d",
     "list.activeSelectionBackground": "#5c61651a",
     "list.inactiveSelectionBackground": "#5c61650d",
+    "list.activeSelectionForeground": "#5C6165",
     "gitDecoration.untrackedResourceForeground": "#8ACB6B",
-    "gitDecoration.modifiedResourceForeground": "#9DBFE2",
+    "gitDecoration.modifiedResourceForeground": "#509fca",
     "gitDecoration.deletedResourceForeground": "#FF8F9B",
-    "editorGutter.modifiedBackground": "#9DBFE2",
+    "editorGutter.modifiedBackground": "#509fca",
     "editorGutter.deletedBackground": "#FF8F9B",
-    "diffEditor.removedLineBackground": "#ff8f9b33",
-    "diffEditor.removedTextBackground": "#ff8f9b33",
-    "diffEditor.insertedTextBackground": "#8acb6b33",
-    "diffEditor.insertedLineBackground": "#8acb6b33",
+    "diffEditor.removedLineBackground": "#ff8f9b1a",
+    "diffEditor.removedTextBackground": "#ff8f9b1a",
+    "diffEditor.insertedTextBackground": "#8acb6b1a",
+    "diffEditor.insertedLineBackground": "#8acb6b1a",
     "editorGutter.addedBackground": "#8ACB6B",
     "gitDecoration.addedResourceForeground": "#8ACB6B",
     "gitDecoration.stageDeletedResourceForeground": "red",
-    "gitDecoration.stageModifiedResourceForeground": "#9DBFE2",
+    "gitDecoration.stageModifiedResourceForeground": "#509fca",
     "gitDecoration.renamedResourceForeground": "#8ACB6B",
     "gitDecoration.ignoredResourceForeground": "#5c616599",
     "terminal.ansiBlack": "#1c1c1c",
@@ -185,6 +189,15 @@
       "scope": "storage.type.annotation",
       "settings": {
         "foreground": "#d59225"
+      }
+    },
+    {
+      "scope": [
+        "meta.tag.attributes",
+        "constant.numeric"
+      ],
+      "settings": {
+        "foreground": "#50afce"
       }
     }
   ]

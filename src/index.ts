@@ -16,7 +16,7 @@ const DARK: Theme = {
     strings: "#BDB969", // base0B
     constants: "#EBD2A7", // base09
     keywords: "#B08CBA", // base0E
-    operators: "#ACBDC3", // base05,
+    operators: "#B08CBA", // base05,
     properties: "#EBD2A7", // base0D,
     types: "#ACBDC3", // base0C
     functions: "#7FB2C7",
@@ -71,7 +71,8 @@ const LIGHT: Theme = {
   },
   git: {
     added: "#8ACB6B",
-    modified: "#9DBFE2",
+    // modified: "#9DBFE2",
+    modified: "#509fca",
     removed: "#FF8F9B",
   },
   diagnostic: {
