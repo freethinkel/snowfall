@@ -2,7 +2,7 @@
   "name": "snowfall",
   "displayName": "Snowfall",
   "description": "Cold theme",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "publisher": "freethinkel",
   "icon": "./logo.png",
   "repository": {
@@ -49,5 +49,8 @@
     "culori": "^4.0.1",
     "polished": "^4.3.1",
     "tsx": "^4.19.2"
+  },
+  "dependencies": {
+    "snowfall": "link:"
   }
 }
