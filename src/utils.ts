@@ -46,3 +46,14 @@ export const lighten = (value: string, amount: number) => {
     })
   );
 };
+
+export const chroming = (value: string, amount: number) => {
+  const color = convertRgbToOklab(parseHex(value));
+
+  return serializeHex(
+    convertOklabToRgb({
+      ...color,
+      c: color.c + amount,
+    })
+  );
+};

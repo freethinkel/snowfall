@@ -145,6 +145,15 @@ export class ThemeBuilder {
           theme.type === "dark" ? "#ffffff" : "#000000",
           0.4
         ),
+        "panelTitle.activeBorder": theme.accent,
+        "panelTitle.activeForeground": theme.accent,
+        "panelTitle.inactiveForeground": theme.foreground,
+
+        "tree.indentGuidesStroke": opacity(theme.foreground, 0.2),
+        "editorIndentGuide.activeBackground1": opacity(theme.foreground, 0.3),
+        // "editorIndentGuide.activeBackground2": "red",
+        "editorIndentGuide.background1": opacity(theme.foreground, 0.1),
+
         "quickInputList.focusForeground": theme.foreground,
         "list.hoverBackground": mix(theme.background, theme.foreground, 0.1),
         "button.background": theme.accent,

@@ -1,14 +1,12 @@
 import { ThemeBuilder } from "./theme-builder";
 import { Theme } from "./types";
-import { lighten } from "./utils";
+import { chroming, lighten } from "./utils";
 
 const DARK: Theme = {
   name: "Snowfall dark",
   type: "dark",
-  // background: "#24272d",
   background: "#24272d",
   foreground: "#91a2a6",
-  // foreground: "#888",
   accent: "#84c4df",
   tokens: {
     brackets: ["#7FB2C7", "#EBD2A7"],
@@ -23,12 +21,12 @@ const DARK: Theme = {
   },
   git: {
     added: "#BDB969",
-    modified: "#9BCAFF",
+    modified: "#84c4df",
     removed: "#FA7583",
   },
   diagnostic: {
     error: "#FA7583",
-    warning: "#ec9c62",
+    warning: "#EBD2A7",
     info: "#9BCAFF",
   },
   terminal: Object.fromEntries(
@@ -42,6 +40,7 @@ const DARK: Theme = {
       cyan: "#7fb2c8",
       white: "#c8ccd4",
       brightBlack: "#636363",
+      brightYellow: "#EBD2A7",
       brightRed: "#a04041",
       brightGreen: "#8b9440",
       brightBlue: "#5d7f9a",
@@ -71,8 +70,7 @@ const LIGHT: Theme = {
   },
   git: {
     added: "#8ACB6B",
-    // modified: "#9DBFE2",
-    modified: "#509fca",
+    modified: "#88C0D0",
     removed: "#FF8F9B",
   },
   diagnostic: {
