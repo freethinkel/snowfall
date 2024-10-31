@@ -13,7 +13,7 @@ Bring the calm beauty of winter into your coding environment with the Snowfall T
 
 ## Twitter
 
-Follow [@freethinkel](https://twitter.com/freethinkell) on Twitter for the latest updates.
+Follow [@freethinkell](https://twitter.com/freethinkell) on Twitter for the latest updates.
 
 ## License
 
