@@ -16,7 +16,7 @@
     "dev": "tsx watch src/index.ts"
   },
   "engines": {
-    "vscode": "^1.94.0"
+    "vscode": "^1.85.0"
   },
   "categories": [
     "Themes"
