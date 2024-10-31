@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  snowfall:
-    specifier: 'link:'
-    version: 'link:'
-
 devDependencies:
   '@types/node':
     specifier: ^22.8.1
