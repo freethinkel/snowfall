@@ -9,7 +9,7 @@ devDependencies:
     specifier: ^22.8.1
     version: 22.8.1
   '@types/vscode':
-    specifier: ^1.94.0
+    specifier: ^1.85.0
     version: 1.94.0
   culori:
     specifier: ^4.0.1
