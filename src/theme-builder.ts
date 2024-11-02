@@ -124,6 +124,8 @@ export class ThemeBuilder {
         "sideBarTitle.foreground": theme.foreground,
         "editor.wordHighlightTextBackground": opacity(theme.accent, 0.1),
         "editor.wordHighlightTextBorder": opacity(theme.accent, 0.1),
+        "editor.wordHighlightStrongBackground": opacity(theme.accent, 0.1),
+        "editor.linkedEditingBackground": opacity(theme.accent, 0.1),
         "toolbar.activeBackground": secondaryBackground,
         "activityBarBadge.background": theme.accent,
         "activityBarBadge.foreground": theme.background,
@@ -134,6 +136,14 @@ export class ThemeBuilder {
         "statusBarItem.errorBackground": theme.diagnostic.error,
         "statusBar.debuggingBackground": theme.accent,
         "statusBar.debuggingForeground": theme.background,
+        "statusBar.noFolderBackground": mix(
+          secondaryBackground,
+          theme.accent,
+          0.1
+        ),
+        "peekViewEditor.background": darken(secondaryBackground, 0.1),
+        "peekViewResult.background": darken(secondaryBackground, 0.1),
+        "peekView.border": theme.accent,
         "debugToolBar.background": secondaryBackground,
         "quickInput.background": theme.background,
         "activityBar.background": secondaryBackground,
