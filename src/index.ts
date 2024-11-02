@@ -1,6 +1,6 @@
 import { ThemeBuilder } from "./theme-builder";
 import { Theme } from "./types";
-import { chroming, lighten } from "./utils";
+import { chroming, lighten, normalizeLightness } from "./utils";
 
 const DARK: Theme = {
   name: "Snowfall dark",
@@ -19,36 +19,38 @@ const DARK: Theme = {
     types: "#ACBDC3", // base0C
     functions: "#7FB2C7",
   },
-  git: {
+  git: normalizeLightness({
     added: "#BDB969",
     modified: "#84c4df",
     removed: "#FA7583",
-  },
+  }),
   diagnostic: {
     error: "#FA7583",
     warning: "#EBD2A7",
     info: "#9BCAFF",
   },
-  terminal: Object.fromEntries(
-    Object.entries({
-      black: "#1c1c1c",
-      red: "#cc6666",
-      green: "#bdb968",
-      yellow: "#f0c674",
-      blue: "#81a2be",
-      magenta: "#b193ba",
-      cyan: "#7fb2c8",
-      white: "#c8ccd4",
-      brightBlack: "#636363",
-      brightYellow: "#EBD2A7",
-      brightRed: "#a04041",
-      brightGreen: "#8b9440",
-      brightBlue: "#5d7f9a",
-      brightMagenta: "#82658c",
-      brightCyan: "#5e8d87",
-      brightWhite: "#ffffff",
-    }).map(([key, value]) => [key, lighten(value, 0.1)])
-  ) as any,
+  terminal: normalizeLightness(
+    Object.fromEntries(
+      Object.entries({
+        black: "#1c1c1c",
+        red: "#cc6666",
+        green: "#bdb968",
+        yellow: "#f0c674",
+        blue: "#81a2be",
+        magenta: "#b193ba",
+        cyan: "#7fb2c8",
+        white: "#c8ccd4",
+        brightBlack: "#636363",
+        brightYellow: "#EBD2A7",
+        brightRed: "#a04041",
+        brightGreen: "#8b9440",
+        brightBlue: "#5d7f9a",
+        brightMagenta: "#82658c",
+        brightCyan: "#5e8d87",
+        brightWhite: "#ffffff",
+      }).map(([key, value]) => [key, lighten(value, 0.1)])
+    ) as any
+  ),
 };
 
 const LIGHT: Theme = {
@@ -68,17 +70,17 @@ const LIGHT: Theme = {
     types: "#ACBDC3", // base0C
     functions: "#50afce",
   },
-  git: {
+  git: normalizeLightness({
     added: "#8ACB6B",
     modified: "#88C0D0",
     removed: "#FF8F9B",
-  },
-  diagnostic: {
+  }),
+  diagnostic: normalizeLightness({
     error: "#FA7583",
     warning: "#ec9c62",
     info: "#9BCAFF",
-  },
-  terminal: {
+  }),
+  terminal: normalizeLightness({
     black: "#1c1c1c",
     red: "#cc6666",
     green: "#bdb968",
@@ -95,7 +97,7 @@ const LIGHT: Theme = {
     brightMagenta: "#82658c",
     brightCyan: "#5e8d87",
     brightWhite: "#ffffff",
-  },
+  }),
 };
 
 const main = async () => {

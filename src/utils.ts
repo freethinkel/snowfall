@@ -57,3 +57,28 @@ export const chroming = (value: string, amount: number) => {
     })
   );
 };
+
+export const normalizeLightness = (obj: Record<string, string>) => {
+  const parsed = Object.entries(obj).map(([key, value]) => {
+    const color = convertRgbToOklab(parseHex(value));
+
+    return [key, color];
+  });
+
+  const lightness =
+    parsed.reduce((acc, [_, color]) => acc + color.l, 0) / parsed.length;
+
+  return Object.fromEntries(
+    parsed.map(([key, color]) => {
+      return [
+        key,
+        serializeHex(
+          convertOklabToRgb({
+            ...color,
+            l: lightness,
+          })
+        ),
+      ];
+    })
+  );
+};
