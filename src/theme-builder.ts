@@ -141,6 +141,9 @@ export class ThemeBuilder {
           theme.accent,
           0.1
         ),
+        "editorInfo.foreground": theme.diagnostic.info,
+        errorForeground: theme.diagnostic.error,
+        "textLink.foreground": darken(theme.diagnostic.info, 0.1),
         "peekViewEditor.background": darken(secondaryBackground, 0.1),
         "peekViewResult.background": darken(secondaryBackground, 0.1),
         "peekView.border": theme.accent,
